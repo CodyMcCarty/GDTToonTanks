@@ -26,4 +26,9 @@ private:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(AllowPrivateAccess))
 	float FireRange = 1000.f;
+
+	FTimerHandle FireRateTimerHandle;
+	float FireRate = 2.f;
+	void TryFire();
+	bool CheckFireCondition() const;
 };

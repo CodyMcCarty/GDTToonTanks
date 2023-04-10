@@ -31,11 +31,9 @@ protected:
 
 private:
 	UPROPERTY(VisibleAnywhere)
-	;
 	USpringArmComponent* SpringArm;
 
 	UPROPERTY(VisibleAnywhere)
-	;
 	UCameraComponent* Camera;
 
 	UPROPERTY(EditAnywhere)

@@ -20,6 +20,8 @@ public:
 protected:
 	void RotateTurret(const FVector& PointOfAim) const;
 
+	void Fire();
+
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta=(AllowPrivateAccess="true"))
 	UCapsuleComponent* CapsuleComp;
