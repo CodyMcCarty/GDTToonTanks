@@ -3,6 +3,7 @@
 
 #include "BasePawn.h"
 #include "Components/CapsuleComponent.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 ABasePawn::ABasePawn()
@@ -21,4 +22,15 @@ ABasePawn::ABasePawn()
 
 	ProjectileSpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("Projectile Spawn Point"));
 	ProjectileSpawnPoint->SetupAttachment(TurretMesh);
+}
+
+void ABasePawn::RotateTurret(const FVector& PointOfAim) const
+{
+	if (PointOfAim == FVector::ZeroVector) return;
+
+	const FVector TurretToTarget = PointOfAim - TurretMesh->GetComponentLocation();
+	//TODO: allow some pitch, may not always be flat map
+	const FRotator SearchTraverse = FRotator(0.f, TurretToTarget.Rotation().Yaw, 0.f);
+	TurretMesh->SetWorldRotation(FMath::RInterpTo(TurretMesh->GetComponentRotation(), SearchTraverse,
+	                                              UGameplayStatics::GetWorldDeltaSeconds(this), 10.f));
 }
