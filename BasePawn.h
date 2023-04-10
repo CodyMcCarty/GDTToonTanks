@@ -38,5 +38,5 @@ private:
 
 	/** Sets the BP to spawn during Fire() */
 	UPROPERTY(EditDefaultsOnly, Category="Config")
-	TSubclassOf<AProjectile> ProjectileClass;
+	TSubclassOf<AProjectile> ProjectileBP;
 };
