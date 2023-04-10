@@ -6,6 +6,7 @@
 #include "BasePawn.h"
 #include "Tower.generated.h"
 
+class ATank;
 /**
  * 
  */
@@ -13,5 +14,17 @@ UCLASS()
 class TOONTANKS_API ATower : public ABasePawn
 {
 	GENERATED_BODY()
+
+public:
+	virtual void Tick(float DeltaSeconds) override;
+
+protected:
+	virtual void BeginPlay() override;
+
+private:
+	ATank* Tank;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(AllowPrivateAccess))
+	float FireRange = 1000.f;
 	
 };
