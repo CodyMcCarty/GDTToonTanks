@@ -29,7 +29,15 @@ private:
 	UPROPERTY(VisibleAnywhere);
 	UCameraComponent* Camera;
 
+	UPROPERTY(EditAnywhere)
+	float Speed = 1200.f;
+
+	UPROPERTY(EditAnywhere)
+	float TurnRate = 200.f;
+
 	void Move(float Value);
+
+	void Turn(float Value);
 
 
 };
