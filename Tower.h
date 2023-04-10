@@ -26,5 +26,4 @@ private:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(AllowPrivateAccess))
 	float FireRange = 1000.f;
-	
 };

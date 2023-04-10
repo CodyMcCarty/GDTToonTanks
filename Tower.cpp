@@ -15,7 +15,6 @@ void ATower::Tick(float DeltaSeconds)
 	// TODO: make turret swivel when no target
 	if (Distance > FireRange) return;
 	RotateTurret(Tank->GetActorLocation());
-	
 }
 
 void ATower::BeginPlay()
