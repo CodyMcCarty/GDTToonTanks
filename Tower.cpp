@@ -10,7 +10,10 @@ void ATower::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
 
-	if (CheckFireCondition()) RotateTurret(Tank->GetActorLocation());
+	if (IsInRange())
+	{
+		RotateTurret(Tank->GetActorLocation());
+	}
 }
 
 void ATower::BeginPlay()
@@ -24,14 +27,13 @@ void ATower::BeginPlay()
 
 void ATower::TryFire()
 {
-	if (!CheckFireCondition()) return;
+	if (!IsInRange()) return;
 	Fire();
 }
 
-bool ATower::CheckFireCondition() const
+bool ATower::IsInRange() const
 {
 	if (!Tank) return false;
-	const bool IsInRange = FVector::Dist(GetActorLocation(), Tank->GetActorLocation()) <= FireRange;
-	if (!IsInRange) return false;
+	if (FireRange < FVector::Dist(GetActorLocation(), Tank->GetActorLocation())) return false;
 	return true;
 }
