@@ -6,6 +6,7 @@
 #include "GameFramework/Pawn.h"
 #include "BasePawn.generated.h"
 
+class AProjectile;
 class UCapsuleComponent;
 
 UCLASS()
@@ -34,4 +35,8 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta=(AllowPrivateAccess="true"))
 	USceneComponent* ProjectileSpawnPoint;
+
+	/** Sets the BP to spawn during Fire() */
+	UPROPERTY(EditDefaultsOnly, Category="Config")
+	TSubclassOf<AProjectile> ProjectileClass;
 };
