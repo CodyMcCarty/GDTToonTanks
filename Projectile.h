@@ -31,4 +31,7 @@ private:
 
 	UPROPERTY(VisibleAnywhere, Category="Config")
 	UProjectileMovementComponent* ProjectileMovementComponent;
+
+	UFUNCTION()
+	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 };
