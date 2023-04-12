@@ -16,6 +16,13 @@ void ATower::Tick(float DeltaSeconds)
 	}
 }
 
+void ATower::HandleDestruction()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Tower::HandleDestruction"));
+	Super::HandleDestruction();
+	Destroy();
+}
+
 void ATower::BeginPlay()
 {
 	Super::BeginPlay();
