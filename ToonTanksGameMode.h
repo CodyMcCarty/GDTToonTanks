@@ -22,6 +22,14 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
+	/* create widgets, etc with blueprints */
+	UFUNCTION(BlueprintImplementableEvent)
+	void StartGame();
+
+	/* create widgets, etc with blueprints */
+	UFUNCTION(BlueprintImplementableEvent)
+	void GameOver(bool bWonGame);
+
 private:
 	ATank* Tank;
 
@@ -29,5 +37,9 @@ private:
 
 	float StartDelay = 3.f;
 
+	int32 TargetTowers = 0;
+
 	void HandleGameStart();
+
+	int32 GetTargetTowersCount();
 };
