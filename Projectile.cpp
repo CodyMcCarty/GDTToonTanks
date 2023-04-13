@@ -31,6 +31,11 @@ void AProjectile::BeginPlay()
 	Super::BeginPlay();
 
 	BulletMesh->OnComponentHit.AddDynamic(this, &AProjectile::OnHit);
+
+	if (LaunchSound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, LaunchSound, GetActorLocation());
+	}
 }
 
 // Called every frame
@@ -42,6 +47,10 @@ void AProjectile::Tick(float DeltaTime)
 void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp,
                         FVector NormalImpulse, const FHitResult& Hit)
 {
+	if (HitSound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, HitSound, GetActorLocation());
+	}
 	auto MyOwner = GetOwner();
 	if (!MyOwner)
 	{

@@ -26,20 +26,26 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 private:
-	UPROPERTY(EditDefaultsOnly, Category="Config")
+	UPROPERTY(EditDefaultsOnly, Category="GP")
 	UStaticMeshComponent* BulletMesh;
 
-	UPROPERTY(VisibleAnywhere, Category="Config")
+	UPROPERTY(VisibleAnywhere, Category="GP")
 	UProjectileMovementComponent* ProjectileMovementComponent;
 
 	UPROPERTY(EditAnywhere)
 	float Damage = 50.f;
 
-	UPROPERTY(EditAnywhere, Category="Config")
+	UPROPERTY(EditAnywhere, Category="GP")
 	UParticleSystem* HitParticles;
 
-	UPROPERTY(VisibleAnywhere, Category="Config")
+	UPROPERTY(VisibleAnywhere, Category="GP")
 	UParticleSystemComponent* TrailParticles;
+
+	UPROPERTY(EditAnywhere, Category="GP")
+	USoundBase* LaunchSound;
+
+	UPROPERTY(EditAnywhere, Category="GP")
+	USoundBase* HitSound;
 
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse,

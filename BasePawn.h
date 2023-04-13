@@ -39,10 +39,15 @@ private:
 	USceneComponent* ProjectileSpawnPoint;
 
 	/** Sets the BP to spawn during Fire() */
-	UPROPERTY(EditDefaultsOnly, Category="Config")
+	UPROPERTY(EditDefaultsOnly, Category="GP")
 	TSubclassOf<AProjectile> ProjectileClass;
 
 	/* Sets the Particle effect on Destruction*/
-	UPROPERTY(EditDefaultsOnly, Category="Config")
+	UPROPERTY(EditDefaultsOnly, Category="GP")
 	UParticleSystem* DestructionEffect;
+
+	/*  */
+	UPROPERTY(EditAnywhere, Category="GP")
+	USoundBase* DeathSound;
+	
 };
