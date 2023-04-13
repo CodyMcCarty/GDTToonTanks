@@ -47,10 +47,6 @@ void AProjectile::Tick(float DeltaTime)
 void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp,
                         FVector NormalImpulse, const FHitResult& Hit)
 {
-	if (HitSound)
-	{
-		UGameplayStatics::PlaySoundAtLocation(this, HitSound, GetActorLocation());
-	}
 	auto MyOwner = GetOwner();
 	if (!MyOwner)
 	{
@@ -67,6 +63,15 @@ void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimi
 		if (HitParticles)
 		{
 			UGameplayStatics::SpawnEmitterAtLocation(this, HitParticles, GetActorLocation(), GetActorRotation());
+		}
+		if (HitSound)
+		{
+			UGameplayStatics::PlaySoundAtLocation(this, HitSound, GetActorLocation());
+		}
+		if (HitCameraShakeClass)
+		{
+			UGameplayStatics::PlayWorldCameraShake(this, HitCameraShakeClass, GetActorLocation(), 0.f, 5000.f);
+			// GetWorld()->GetFirstPlayerController()->ClientStartCameraShake(HitCameraShake);
 		}
 	}
 	Destroy();

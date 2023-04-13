@@ -36,6 +36,10 @@ void ABasePawn::HandleDestruction()
 	{
 		UGameplayStatics::SpawnEmitterAtLocation(this, DestructionEffect, GetActorLocation(), GetActorRotation());
 	}
+	if (DeathCameraShakeClass)
+	{
+		UGameplayStatics::PlayWorldCameraShake(this, DeathCameraShakeClass, GetActorLocation(), 0.f, 5000.f);
+	}
 }
 
 void ABasePawn::RotateTurret(const FVector& PointOfAim) const

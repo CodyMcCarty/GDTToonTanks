@@ -47,6 +47,10 @@ private:
 	UPROPERTY(EditAnywhere, Category="GP")
 	USoundBase* HitSound;
 
+
+	UPROPERTY(EditDefaultsOnly, Category = "GP")
+	TSubclassOf<UCameraShakeBase> HitCameraShakeClass;
+
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse,
 	           const FHitResult& Hit);

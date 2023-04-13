@@ -49,5 +49,8 @@ private:
 	/*  */
 	UPROPERTY(EditAnywhere, Category="GP")
 	USoundBase* DeathSound;
+
+	UPROPERTY(EditDefaultsOnly, Category = "GP")
+	TSubclassOf<UCameraShakeBase> DeathCameraShakeClass;
 	
 };
