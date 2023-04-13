@@ -5,6 +5,7 @@
 
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Particles/ParticleSystemComponent.h"
 
 // Sets default values
 AProjectile::AProjectile()
@@ -14,6 +15,9 @@ AProjectile::AProjectile()
 
 	BulletMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Bullet"));
 	RootComponent = BulletMesh;
+
+	TrailParticles = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("Smoke Trail"));
+	TrailParticles->SetupAttachment(BulletMesh);
 
 	ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(
 		TEXT("Projectile Movement Component"));
