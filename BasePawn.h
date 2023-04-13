@@ -41,4 +41,8 @@ private:
 	/** Sets the BP to spawn during Fire() */
 	UPROPERTY(EditDefaultsOnly, Category="Config")
 	TSubclassOf<AProjectile> ProjectileClass;
+
+	/* Sets the Particle effect on Destruction*/
+	UPROPERTY(EditDefaultsOnly, Category="Config")
+	UParticleSystem* DestructionEffect;
 };

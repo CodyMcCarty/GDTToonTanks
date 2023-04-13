@@ -28,8 +28,10 @@ ABasePawn::ABasePawn()
 
 void ABasePawn::HandleDestruction()
 {
-	// TODO: Visual/sound effects
-	// TODO: make virtual or delegate
+	if (DestructionEffect)
+	{
+		UGameplayStatics::SpawnEmitterAtLocation(this, DestructionEffect, GetActorLocation(), GetActorRotation());
+	}
 }
 
 void ABasePawn::RotateTurret(const FVector& PointOfAim) const
