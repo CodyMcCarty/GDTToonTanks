@@ -30,7 +30,6 @@ void ABasePawn::HandleDestruction()
 {
 	// TODO: Visual/sound effects
 	// TODO: make virtual or delegate
-	UE_LOG(LogTemp, Warning, TEXT("Base::HandleDestruction"));
 }
 
 void ABasePawn::RotateTurret(const FVector& PointOfAim) const
